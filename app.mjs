@@ -6,6 +6,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// health check
+app.get("/reading-list/healthz", (_, res) => {
+  return res.json({ status: "ok" });
+});
+
 // add a book - request body should contain a title, status and an author
 app.post("/reading-list/books", (req, res) => {
   const { title, author, status } = req.body;
@@ -80,10 +85,7 @@ app.delete("/reading-list/books/:uuid", (req, res) => {
   return res.json({ uuid });
 });
 
-// health check
-app.get("/reading-list/healthz", (_, res) => {
-  return res.sendStatus(200);
-});
+
 
 app.use((err, _req, res, next) => {
   if (res.headersSent) {
