@@ -17,6 +17,100 @@ tags:
   - name: books
     description: In-memory book list cache API
 paths:
+  /books:
+    summary: List all books
+    get:
+      summary: List all books
+      operationId: ListAllBooks
+      tags:
+        - books
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StringArray"
+    post:
+      summary: Insert a new book
+      operationId: SetNewBook
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Invalid request body
+      tags:
+        - books
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/KeyValue"
+
+  /books/{uuid}:
+    summary: Get book by UUID
+    get:
+      tags:
+        - books
+      summary: Get book by UUID
+      operationId: GetBookByUUID
+      parameters:
+        - name: uuid
+          in: path
+          description: UUID of book to return
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/KeyValue"
+        "404":
+          description: UUID not found
+    delete:
+      tags:
+        - books
+      summary: Delete book by UUID
+      description: Deletes a single book based on the UUID supplied
+      operationId: DeleteBookByUUID
+      parameters:
+        - name: uuid
+          in: path
+          description: UUID of book to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful operation
+        "404":
+          description: ISBN not found
+    put:
+      tags:
+        - books
+      summary: Update book status by UUID
+      description: Updates the status of the book based on the UUID supplied
+      operationId: UpdateBookStatusByUUID
+      parameters:
+        - name: uuid
+          in: path
+          description: UUID of book to update
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful operation
+        "404":
+          description: UUID not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Status"
   /healthz:
     summary: Healthcheck endpoint
     get:
@@ -25,3 +119,4 @@ paths:
       responses:
         "200":
           description: Healthy response
+
