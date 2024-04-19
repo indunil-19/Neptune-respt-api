@@ -17,11 +17,52 @@ tags:
   - name: books
     description: In-memory book list cache API
 paths:
-  /healthz:
-    summary: Healthcheck endpoint
+  /books:
+    summary: List all books
     get:
-      summary: Healthcheck
-      operationId: Healthcheck
+      summary: List all books
+      operationId: ListAllBooks
+      tags:
+        - books
       responses:
         "200":
-          description: Healthy response
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StringArray"
+
+components:
+  schemas:
+    Key:
+      type: object
+      properties:
+        uuid:
+          type: string
+          example: "my-uuid"
+    Status:
+      type: object
+      properties:
+        status:
+          type: string
+          example: "read"
+    KeyValue:
+      type: object
+      required:
+        - title
+        - author
+        - status
+      properties:
+        title:
+          type: string
+          example: "my-title"
+        author:
+          type: string
+          example: "my-author"
+        status:
+          type: string
+          example: "read"
+    StringArray:
+      type: array
+      items:
+        type: string
