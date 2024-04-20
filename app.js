@@ -1,5 +1,4 @@
-import express from "express";
-
+const express = require("express");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -8,8 +7,6 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/reading-list/healthz", (_, res) => {
   return res.json({ status: "ok" });
 });
-
-
 
 app.use((err, _req, res, next) => {
   if (res.headersSent) {
@@ -26,4 +23,4 @@ app.use("*", (_, res) => {
     .json({ error: "the requested resource does not exist on this server" });
 });
 
-export default app;
+module.exports = app;

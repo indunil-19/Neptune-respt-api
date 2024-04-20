@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "Sample NodeJS REST API Service with In-memory Cache",
   "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "start": "node index.mjs",
-    "test": "mocha test.mjs"
+ "scripts": {
+    "start": "node index.js",
+    "test": "mocha test.js"
   },
   "author": "",
   "license": "Apache-2.0",
