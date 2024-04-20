@@ -98,4 +98,108 @@ paths:
           description: OK
         '422':
           description: Unprocessable Entity
-  
+  /user/{id}:
+    get:
+      description: ""
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: authorization
+          in: header
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity
+  /follow:
+    put:
+      description: ""
+      parameters:
+        - name: authorization
+          in: header
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                followId:
+                  example: any
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity
+  /unfollow:
+    put:
+      description: ""
+      parameters:
+        - name: authorization
+          in: header
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                unfollowId:
+                  example: any
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity
+  /updatepic:
+    put:
+      description: ""
+      parameters:
+        - name: authorization
+          in: header
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pic:
+                  example: any
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity
+  /search-users:
+    post:
+      description: ""
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  example: any
+      responses:
+        '200':
+          description: OK
