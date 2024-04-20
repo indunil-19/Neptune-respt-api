@@ -4,7 +4,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // health check
-app.get("/reading-list/healthz", (_, res) => {
+app.get("/healthz", (_, res) => {
   return res.json({ status: "ok" });
 });
 
