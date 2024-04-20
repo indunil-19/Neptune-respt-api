@@ -3,22 +3,22 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const mongoose = require("mongoose");
-const { MONGOURI } = require("./config/keys");
+// const mongoose = require("mongoose");
+// const { MONGOURI } = require("./config/keys");
 
-mongoose.connect(MONGOURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-mongoose.connection.on("connected", () => {
-  console.log("conneted to mongo yeahh");
-});
-mongoose.connection.on("error", (err) => {
-  console.log("err connecting", err);
-});
+// mongoose.connect(MONGOURI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+// mongoose.connection.on("connected", () => {
+//   console.log("conneted to mongo yeahh");
+// });
+// mongoose.connection.on("error", (err) => {
+//   console.log("err connecting", err);
+// });
 
-require("./models/user");
-require("./models/post");
+// require("./models/user");
+// require("./models/post");
 
 
 
