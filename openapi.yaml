@@ -24,4 +24,78 @@ paths:
       responses:
         "200":
           description: Healthy response
+  /signup:
+    post:
+      description: ""
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  example: any
+                email:
+                  example: any
+                password:
+                  example: any
+                pic:
+                  example: any
+      responses:
+        '200':
+          description: OK
+        '422':
+          description: Unprocessable Entity
+  /signin:
+    post:
+      description: ""
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  example: any
+                password:
+                  example: any
+      responses:
+        '200':
+          description: OK
+        '422':
+          description: Unprocessable Entity
+  /reset-password:
+    post:
+      description: ""
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  example: any
+      responses:
+        '200':
+          description: OK
+        '422':
+          description: Unprocessable Entity
+  /new-password:
+    post:
+      description: ""
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  example: any
+                token:
+                  example: any
+      responses:
+        '200':
+          description: OK
+        '422':
+          description: Unprocessable Entity
   
