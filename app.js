@@ -26,6 +26,7 @@ app.get("/healthz", (_, res) => {
 });
 
 app.use(require("./routes/auth"));
+app.use(require("./routes/user"));
 
 app.use((err, _req, res, next) => {
   if (res.headersSent) {
@@ -43,6 +44,5 @@ app.use("*", (_, res) => {
 });
 
 // app.use(require("./routes/post"));
-// app.use(require("./routes/user"));
 
 module.exports = app;
