@@ -40,4 +40,8 @@ app.use("*", (_, res) => {
     .json({ error: "the requested resource does not exist on this server" });
 });
 
+app.use(require("./routes/auth"));
+// app.use(require("./routes/post"));
+// app.use(require("./routes/user"));
+
 module.exports = app;
