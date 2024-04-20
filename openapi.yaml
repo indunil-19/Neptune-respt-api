@@ -1,9 +1,8 @@
 openapi: 3.0.3
 info:
-  title: Choreo Sample - Book List - Nodejs REST API Service
+  title: Neptune REST API Service
   description: >-
-    This is a sample API specification for a simple reading list application with in-memory cache
-    written in Nodejs
+    This is a  API specification for Neptune REST API Service   written in Nodejs
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -14,8 +13,8 @@ externalDocs:
 servers:
   - url: http://localhost:8080
 tags:
-  - name: books
-    description: In-memory book list cache API
+  - name: posts
+    description: Neptune REST API Service
 paths:
   /healthz:
     summary: Healthcheck endpoint
