@@ -27,6 +27,7 @@ app.get("/healthz", (_, res) => {
 
 app.use(require("./routes/auth"));
 app.use(require("./routes/user"));
+app.use(require("./routes/post"));
 
 app.use((err, _req, res, next) => {
   if (res.headersSent) {
@@ -42,7 +43,5 @@ app.use("*", (_, res) => {
     .status(404)
     .json({ error: "the requested resource does not exist on this server" });
 });
-
-// app.use(require("./routes/post"));
 
 module.exports = app;
