@@ -25,6 +25,8 @@ app.get("/healthz", (_, res) => {
   return res.json({ status: "ok" });
 });
 
+app.use(require("./routes/auth"));
+
 app.use((err, _req, res, next) => {
   if (res.headersSent) {
     return next(err);
@@ -40,7 +42,6 @@ app.use("*", (_, res) => {
     .json({ error: "the requested resource does not exist on this server" });
 });
 
-app.use(require("./routes/auth"));
 // app.use(require("./routes/post"));
 // app.use(require("./routes/user"));
 
